@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL-képző alkalmazás</title>
+    <title>Stock info</title>
     <!-- Link a Bootstrap CSS-hez -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">URL-képző alkalmazás</h1>
+        <h1 class="mb-4">Stock info</h1>
         <div class="form-group">
-            <label for="inputText">Adja meg a szöveget:</label>
+            <label for="inputText">Ticker:</label>
             <input type="text" class="form-control" id="inputText" placeholder="Írja be a szöveget...">
         </div>
         <button class="btn btn-primary mt-2" onclick="generateURLs()">URL-képzés</button>
@@ -25,11 +25,12 @@
         function generateURLs() {
             const inputText = document.getElementById('inputText').value;
             const urls = [
-                "https://finviz.com/quote.ashx?t=" + inputText,
-                "https://www.zacks.com/stock/quote/" + inputText,
                 "https://seekingalpha.com/symbol/" + inputText,
+                "https://www.zacks.com/stock/quote/" + inputText,          
+                "https://www.marketbeat.com/stocks/NASDAQ/" + inputText,                      
+                "https://finviz.com/quote.ashx?t=" + inputText,                
                 "https://www.marketwatch.com/investing/stock/" + inputText,
-                "https://www.marketbeat.com/stocks/NASDAQ/" + inputText
+                "https://finance.yahoo.com/quote/"+ inputText + "/financials/"
             ];
 
             const outputList = document.getElementById('outputList');
