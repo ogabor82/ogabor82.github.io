@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL-képző alkalmazás</title>
+</head>
+<body>
+    <h1>URL-képző alkalmazás</h1>
+    <p>Adja meg a szöveget:</p>
+    <input type="text" id="inputText" placeholder="Írja be a szöveget...">
+    <button onclick="generateURLs()">URL-képzés</button>
+    
+    <h2>Eredmények:</h2>
+    <ul id="outputList"></ul>
+
+    <script>
+        function generateURLs() {
+            const inputText = document.getElementById('inputText').value;
+            const urls = [
+                "https://finviz.com/quote.ashx?t=" + inputText,
+                "https://www.zacks.com/stock/quote/" + inputText,
+                "https://seekingalpha.com/symbol/" + inputText,
+                "https://www.marketwatch.com/investing/stock/" + inputText,
+                "https://www.marketbeat.com/stocks/NASDAQ/" + inputText
+            ];
+
+            const outputList = document.getElementById('outputList');
+            outputList.innerHTML = ''; // Törölje az előző eredményeket
+
+            urls.forEach(url => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = url;
+                link.textContent = url;
+                listItem.appendChild(link);
+                outputList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
