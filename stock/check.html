@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL-képző alkalmazás</title>
+    <!-- Link a Bootstrap CSS-hez -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>URL-képző alkalmazás</h1>
-    <p>Adja meg a szöveget:</p>
-    <input type="text" id="inputText" placeholder="Írja be a szöveget...">
-    <button onclick="generateURLs()">URL-képzés</button>
-    
-    <h2>Eredmények:</h2>
-    <ul id="outputList"></ul>
+    <div class="container mt-5">
+        <h1 class="mb-4">URL-képző alkalmazás</h1>
+        <div class="form-group">
+            <label for="inputText">Adja meg a szöveget:</label>
+            <input type="text" class="form-control" id="inputText" placeholder="Írja be a szöveget...">
+        </div>
+        <button class="btn btn-primary mt-2" onclick="generateURLs()">URL-képzés</button>
+        
+        <h2 class="mt-4">Eredmények:</h2>
+        <ul id="outputList" class="list-group mt-2"></ul>
+    </div>
 
+    <!-- Helyezze el a JavaScript kódot a HTML oldalon -->
     <script>
         function generateURLs() {
             const inputText = document.getElementById('inputText').value;
@@ -28,6 +37,7 @@
 
             urls.forEach(url => {
                 const listItem = document.createElement('li');
+                listItem.className = "list-group-item";
                 const link = document.createElement('a');
                 link.href = url;
                 link.textContent = url;
@@ -36,5 +46,8 @@
             });
         }
     </script>
+
+    <!-- Link a Bootstrap JavaScript-hez (szükséges a Bootstrap komponensek működéséhez) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
